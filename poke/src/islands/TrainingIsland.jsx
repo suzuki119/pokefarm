@@ -46,7 +46,7 @@ export default function TrainingIsland({ resort }) {
                 onClick={() => toggleTraining(p.id)}
                 disabled={max}
               >
-                {training ? '🔥 トレーニング中（やめる）' : 'トレーニングする'}
+                {training ? 'トレーニング中（やめる）' : 'トレーニングする'}
               </button>
             </div>
           )

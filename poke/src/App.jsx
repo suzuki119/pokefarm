@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useResort } from './useResort.jsx'
+import IslandScene from './islands/IslandScene.jsx'
 import GatherIsland from './islands/GatherIsland.jsx'
 import FriendshipIsland from './islands/FriendshipIsland.jsx'
 import TrainingIsland from './islands/TrainingIsland.jsx'
@@ -7,25 +8,26 @@ import BerryFarm from './islands/BerryFarm.jsx'
 import './App.css'
 
 const ISLANDS = [
-  { id: 'gather', label: 'あつめる島', emoji: '🏝️', Component: GatherIsland },
-  { id: 'friend', label: 'なかよし島', emoji: '💖', Component: FriendshipIsland },
-  { id: 'train', label: 'トレーニング島', emoji: '💪', Component: TrainingIsland },
-  { id: 'berry', label: 'きのみ畑', emoji: '🍓', Component: BerryFarm },
+  { id: 'resort', label: 'リゾート', Component: IslandScene },
+  { id: 'gather', label: 'あつめる', Component: GatherIsland },
+  { id: 'friend', label: 'なかよし', Component: FriendshipIsland },
+  { id: 'train', label: 'トレーニング', Component: TrainingIsland },
+  { id: 'berry', label: 'きのみ畑', Component: BerryFarm },
 ]
 
 function App() {
   const resort = useResort()
-  const [tab, setTab] = useState('gather')
+  const [tab, setTab] = useState('resort')
 
   const Active = ISLANDS.find((i) => i.id === tab).Component
 
   return (
     <div className="App">
       <header className="resort-header">
-        <h1>🌴 ポケファーム・リゾート</h1>
+        <h1>ポケファーム・リゾート</h1>
         <div className="status">
-          <span>🐾 {resort.state.pokemons.length}ひき</span>
-          <span>🍓 {resort.state.berries}こ</span>
+          <span>ポケモン {resort.state.pokemons.length}ひき</span>
+          <span>きのみ {resort.state.berries}こ</span>
         </div>
       </header>
 
@@ -36,7 +38,6 @@ function App() {
             className={tab === i.id ? 'active' : ''}
             onClick={() => setTab(i.id)}
           >
-            <span className="tab-emoji">{i.emoji}</span>
             <span className="tab-label">{i.label}</span>
           </button>
         ))}

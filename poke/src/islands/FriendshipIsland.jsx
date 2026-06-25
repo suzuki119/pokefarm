@@ -29,7 +29,7 @@ export default function FriendshipIsland({ resort }) {
                 />
               </div>
               <small>
-                {max ? '💖 なかよしMAX!' : `なかよし度 ${p.friendship}/${MAX_FRIENDSHIP}`}
+                {max ? 'なかよしMAX!' : `なかよし度 ${p.friendship}/${MAX_FRIENDSHIP}`}
               </small>
 
               <div className="tile-actions">

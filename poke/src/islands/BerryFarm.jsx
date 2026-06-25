@@ -22,7 +22,7 @@ export default function BerryFarm({ resort }) {
               className={`plot ${empty ? 'plot-empty' : ready ? 'plot-ready' : 'plot-growing'}`}
             >
               <div className="plot-emoji">
-                {empty ? '🟫' : ready ? '🍓' : '🌱'}
+                {empty ? 'さら地' : ready ? 'みのった' : 'なえ'}
               </div>
 
               {!empty && !ready && (

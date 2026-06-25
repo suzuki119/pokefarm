@@ -18,6 +18,7 @@ export function useResort() {
 
   const stateRef = useRef(state)
   useEffect(() => {
+    
     stateRef.current = state
   }, [state])
 
