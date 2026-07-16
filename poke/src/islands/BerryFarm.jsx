@@ -27,11 +27,8 @@ export default function BerryFarm({ resort }) {
                 <img
                   className="plot-sprite"
                   src={
-                    ready
-                      ? '/Planet/3.png'
-                      : progress < 0.5
-                        ? '/Planet/1.png'
-                        : '/Planet/2.png'
+                    import.meta.env.BASE_URL +
+                    (ready ? 'Planet/3.png' : progress < 0.5 ? 'Planet/1.png' : 'Planet/2.png')
                   }
                   alt={ready ? 'みのった' : 'なえ'}
                 />

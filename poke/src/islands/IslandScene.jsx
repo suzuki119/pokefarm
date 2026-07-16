@@ -9,7 +9,7 @@ import {
 } from '@react-three/drei'
 import * as THREE from 'three'
 
-const GROUND_URL = '/kusa.glb'
+const GROUND_URL = import.meta.env.BASE_URL + 'kusa.glb'
 
 // kusa.glb を、島の上面が y=0 に来るように置く
 function Ground({ groundRef }) {
