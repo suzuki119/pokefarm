@@ -1,16 +1,16 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このテンプレートは、Vite で React を動かすための最小構成です。HMR（ホットリロード）といくつかの ESLint ルールが含まれています。
 
-Currently, two official plugins are available:
+現在、公式プラグインは2つあります。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) — [Oxc](https://oxc.rs) を使用
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) — [SWC](https://swc.rs/) を使用
 
 ## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React Compiler は、開発時・ビルド時のパフォーマンスへの影響を考慮して、このテンプレートでは有効化されていません。追加したい場合は[こちらのドキュメント](https://react.dev/learn/react-compiler/installation)を参照してください。
 
-## Expanding the ESLint configuration
+## ESLint 設定の拡張
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+本番向けのアプリケーションを開発する場合は、TypeScript を導入し、型情報を使った lint ルールを有効にすることをおすすめします。TypeScript と [`typescript-eslint`](https://typescript-eslint.io) をプロジェクトに組み込む方法は、[TS テンプレート](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts)を参照してください。
