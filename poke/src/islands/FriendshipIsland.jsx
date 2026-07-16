@@ -1,8 +1,8 @@
 import { MAX_FRIENDSHIP } from '../storage.jsx'
 
-// なかよし島：なでたり、きのみをあげてなかよし度を上げる
+// なかよし島：きのみをあげてなかよし度を上げる
 export default function FriendshipIsland({ resort }) {
-  const { state, pet, feedBerry, releasePokemon } = resort
+  const { state, feedBerry, releasePokemon } = resort
 
   if (state.pokemons.length === 0) {
     return <EmptyHint />
@@ -33,9 +33,6 @@ export default function FriendshipIsland({ resort }) {
               </small>
 
               <div className="tile-actions">
-                <button onClick={() => pet(p.id)} disabled={max}>
-                  なでる +3
-                </button>
                 <button
                   onClick={() => feedBerry(p.id)}
                   disabled={max || state.berries <= 0}

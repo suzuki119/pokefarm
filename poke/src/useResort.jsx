@@ -2,8 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import {
   loadState,
   saveState,
-  applyElapsed,
-  gainExp,
   isBerryReady,
   MAX_FRIENDSHIP,
   BERRY_YIELD,
@@ -11,8 +9,8 @@ import {
 
 // リゾート全体の状態と操作をまとめたカスタムフック
 export function useResort() {
-  // 初回マウント時に保存データを読み込み、放置ぶんを反映する
-  const [state, setState] = useState(() => applyElapsed(loadState()))
+  // 初回マウント時に保存データを読み込む
+  const [state, setState] = useState(() => loadState())
   // 1秒ごとに更新される現在時刻（進捗バーの再描画用）
   const [now, setNow] = useState(() => Date.now())
 
@@ -22,12 +20,9 @@ export function useResort() {
     stateRef.current = state
   }, [state])
 
-  // 毎秒：経過ぶんの経験値を進め、現在時刻を更新する
+  // 毎秒：現在時刻を更新する（きのみの進捗バーの再描画用）
   useEffect(() => {
-    const id = setInterval(() => {
-      setState((prev) => applyElapsed(prev))
-      setNow(Date.now())
-    }, 1000)
+    const id = setInterval(() => setNow(Date.now()), 1000)
     return () => clearInterval(id)
   }, [])
 
@@ -54,11 +49,9 @@ export function useResort() {
         name: p.name,
         nameJa: p.nameJa,
         image: p.image,
+        imageBack: p.imageBack ?? p.image,
         types: p.types,
         friendship: 0,
-        level: 1,
-        exp: 0,
-        trainingSince: null,
       }
       return { ...prev, pokemons: [...prev.pokemons, newcomer] }
     })
@@ -68,18 +61,6 @@ export function useResort() {
     setState((prev) => ({
       ...prev,
       pokemons: prev.pokemons.filter((p) => p.id !== id),
-    }))
-  }, [])
-
-  // なでる：なかよし度 +3（無料）
-  const pet = useCallback((id) => {
-    setState((prev) => ({
-      ...prev,
-      pokemons: prev.pokemons.map((p) =>
-        p.id === id
-          ? { ...p, friendship: Math.min(MAX_FRIENDSHIP, p.friendship + 3) }
-          : p,
-      ),
     }))
   }, [])
 
@@ -97,18 +78,6 @@ export function useResort() {
         ),
       }
     })
-  }, [])
-
-  // トレーニングの開始 / 終了
-  const toggleTraining = useCallback((id) => {
-    setState((prev) => ({
-      ...prev,
-      pokemons: prev.pokemons.map((p) =>
-        p.id === id
-          ? { ...p, trainingSince: p.trainingSince ? null : Date.now() }
-          : p,
-      ),
-    }))
   }, [])
 
   // きのみを植える
@@ -140,12 +109,8 @@ export function useResort() {
     now,
     addPokemon,
     releasePokemon,
-    pet,
     feedBerry,
-    toggleTraining,
     plantBerry,
     harvestBerry,
   }
 }
-
-export { gainExp }

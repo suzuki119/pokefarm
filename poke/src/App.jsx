@@ -3,7 +3,6 @@ import { useResort } from './useResort.jsx'
 import IslandScene from './islands/IslandScene.jsx'
 import GatherIsland from './islands/GatherIsland.jsx'
 import FriendshipIsland from './islands/FriendshipIsland.jsx'
-import TrainingIsland from './islands/TrainingIsland.jsx'
 import BerryFarm from './islands/BerryFarm.jsx'
 import './App.css'
 
@@ -11,7 +10,6 @@ const ISLANDS = [
   { id: 'resort', label: 'リゾート', Component: IslandScene },
   { id: 'gather', label: 'あつめる', Component: GatherIsland },
   { id: 'friend', label: 'なかよし', Component: FriendshipIsland },
-  { id: 'train', label: 'トレーニング', Component: TrainingIsland },
   { id: 'berry', label: 'きのみ畑', Component: BerryFarm },
 ]
 

@@ -229,10 +229,6 @@
   gap: 0.25rem;
 }
 
-.poke-tile.is-training {
-  box-shadow: 0 0 0 3px var(--accent), 0 3px 0 rgba(0, 0, 0, 0.08);
-}
-
 .tile-sprite {
   width: 96px;
   height: 96px;
@@ -242,12 +238,6 @@
 
 .poke-tile strong {
   font-size: 1rem;
-}
-
-.level {
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: var(--accent);
 }
 
 .tile-actions {
@@ -273,11 +263,6 @@
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;
-}
-
-.poke-tile button.training-on {
-  background: var(--accent);
-  box-shadow: 0 2px 0 #c4502f;
 }
 
 .poke-tile .release {
@@ -307,10 +292,6 @@
 
 .friendship-bar .bar-fill {
   background: linear-gradient(90deg, #ff9a9e, #ff5e7e);
-}
-
-.exp-bar .bar-fill {
-  background: linear-gradient(90deg, #7ed957, #ffd93b);
 }
 
 .grow-bar .bar-fill {
@@ -348,9 +329,19 @@
   font-size: 0.85rem;
   font-weight: bold;
   color: #5a4a36;
-  min-height: 1.8rem;
+  min-height: 76px; /* ドット絵と高さを揃えて区画がガタつかないように */
   display: flex;
   align-items: center;
+}
+
+/* きのみの成長段階のドット絵（Planet/1〜3.png） */
+.plot-sprite {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  /* 画像の白背景を土の色に溶かす */
+  mix-blend-mode: multiply;
 }
 
 .plot button {

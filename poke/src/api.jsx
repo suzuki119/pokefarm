@@ -29,6 +29,7 @@ export async function searchPokemon(query) {
     genusJa: pickJa(species?.genera, 'genus') ?? '',
     flavorJa: pickFlavor(species?.flavor_text_entries) ?? '',
     image: data.sprites.front_default,
+    imageBack: data.sprites.back_default ?? data.sprites.front_default,
     types: data.types.map((t) => translateType(t.type.name)),
     height: data.height / 10, // m
     weight: data.weight / 10, // kg

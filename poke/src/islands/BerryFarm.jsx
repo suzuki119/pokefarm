@@ -21,9 +21,21 @@ export default function BerryFarm({ resort }) {
               key={i}
               className={`plot ${empty ? 'plot-empty' : ready ? 'plot-ready' : 'plot-growing'}`}
             >
-              <div className="plot-emoji">
-                {empty ? 'さら地' : ready ? 'みのった' : 'なえ'}
-              </div>
+              {empty ? (
+                <div className="plot-emoji">さら地</div>
+              ) : (
+                <img
+                  className="plot-sprite"
+                  src={
+                    ready
+                      ? '/Planet/3.png'
+                      : progress < 0.5
+                        ? '/Planet/1.png'
+                        : '/Planet/2.png'
+                  }
+                  alt={ready ? 'みのった' : 'なえ'}
+                />
+              )}
 
               {!empty && !ready && (
                 <div className="bar grow-bar">
